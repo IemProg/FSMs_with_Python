@@ -41,10 +41,8 @@ class AutomateBase :
         """ -> list[str]
         rend la liste des labels d'étiquettes présents dans l'automate
         """
-        # E : set[str]
-        E = set(self.listTransitions)
-        # reconversion en liste
-        return list(E)
+        # recuperation des etiquettes sous forme de set et reconversion en liste
+        return list(set([t.etiquette for t in self.listTransitions]))
 
     
     def __getListStates(self):
@@ -60,7 +58,7 @@ class AutomateBase :
 
     
 
-    def addTransition(self, transition) :
+    def addTransition(self, transition):
         """Transition -> Bool
         fait la mise à jour de l'automate en lui ajoutant la
         transition, en ajoutant les états impliqués dans l'automate
@@ -78,7 +76,7 @@ class AutomateBase :
         return False
         
     
-    def removeTransition(self, transition) :
+    def removeTransition(self, transition):
         """Transition -> Bool
         fait la mise à jour de l'automate en lui enlevant la
         transition, sans modifier les états 
@@ -121,7 +119,7 @@ class AutomateBase :
         
         		    
  
-    def getListInitialStates (self) :
+    def getListInitialStates(self):
         """ -> list[State]
         rend la liste des états initiaux
         """
@@ -134,7 +132,7 @@ class AutomateBase :
         return initStates
 
          
-    def getListFinalStates (self) :
+    def getListFinalStates(self):
         """ -> list[State]
         rend la liste des états finals
         """
@@ -148,7 +146,7 @@ class AutomateBase :
         
         
 
-    def getListTransitionsFrom (self, state) :
+    def getListTransitionsFrom(self, state):
         """ State -> list[Transition]
         rend la liste des transitions sortant de l'état state dans l'automate
         """
@@ -163,7 +161,7 @@ class AutomateBase :
         
 
  
-    def toDot (self) : 
+    def toDot(self): 
         """-> str 
         rend une description de l'automate au format dot qui sera
         appelée par la fonction show
@@ -263,13 +261,13 @@ class AutomateBase :
         #On recupere les listes des etats
         #listeInit : list[str]
         listeInit = listeResultat[1]
-        #print("listeInit" + str(listeInit))
+        print("listeInit" + str(listeInit))
         # listeFin : list[str]
         listeFin = listeResultat[2]
-        #print(listeFin)
+        print(listeFin)
         #listeEtats: list[str]
         listeEtats = listeResultat[0]
-        #print(listeEtats)
+        print(listeEtats)
         # listeE : list[State]
         listeE=[]
         # listeT : list[Transition]
