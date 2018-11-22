@@ -55,17 +55,35 @@ class Automate(AutomateBase):
         """ Automate x str -> bool
         rend True si auto accepte mot, False sinon
         """
-        
+        """
+        Stategy:
+        1/ Check if mot[0] is an etiquette in init_states
+        2/ Going thougth each letter in mot:
+           *Move to the next state m[i]: Find it>> continue / Noth ==> False
+           *Check if the previous states before final state has mot[-1] etiquette
+        """
         init_states = auto.getListInitialStates()
         final_states = auto.getListFinalStates()
         states = auto.listStates
+        for state in states:
+            if (state in init_states) or (state in final_states):
+                states.remove(state)
 
-        for m in mot:
-            for state in states:
-                succ_states = auto.succ(state, m)
-            
+        #A set contains the states in order (init => states ==> final)
+        en_ordere = init_states + states + final_states
 
-        return True
+        succ = auto.succ(init_states, mot[0])
+        if len(succ) == 0:
+            return False
+        else:
+            for i in len(mot):
+                succ = auto.succ(en_ordere[i], mot[i])
+                if succ == 0:
+                    return False
+            succ = auto.succ(states[-1], mot[-1])
+            for item in final_states:
+                if item in succ:
+                    return True
                    
 
         
@@ -126,6 +144,8 @@ class Automate(AutomateBase):
                         if l != transition.etiquette:
                             transition = Transition(l, state, puit)
                             auto_copy.addTransition(state, l, puit)
+                            
+                        #Pout eliminer des raccourcis des étiquettes dans puit
                         etiquettes_puit =[transition.etiquette for transition in auto.getListTransitionsFrom(puit)]
                         if l not in etiquettes_puit:
                             auto_copy.addTransition(puit, l, puit)
