@@ -46,44 +46,52 @@ According to Wiki:
         """ Automate x str -> bool
          rend True si auto est complet pour alphabet, False sinon
         """
-3 - estDeterministe(auto) :
+3 - estDeterministe(auto) :<br/>
+
         """ Automate  -> bool
         rend True si auto est déterministe, False sinon
         """
         
-4 - completeAutomate(auto,alphabet) :
+4 - completeAutomate(auto,alphabet) :<br/>
+
         """ Automate x str -> Automate
         rend l'automate complété d'auto, par rapport à alphabet
         """    
         
-5 - determinisation(auto):
+5 - determinisation(auto): <br/>
+
         """ Automate  -> Automate
         rend l'automate déterminisé d'auto
         --Pour déterminiser auto, on construit un automat sur P(A),
         on part de l'ensemble des états initiaux.
         """
         
-6 - complementaire(auto,alphabet):
+6 - complementaire(auto,alphabet): <br/>
+
         """ Automate -> Automate
         rend  l'automate acceptant pour langage le complémentaire du langage de a
         """
-7 - intersection(auto0, auto1):
+7 - intersection(auto0, auto1): <br/>
+
         """ Automate x Automate -> Automate
         rend l'automate acceptant pour langage l'intersection des langages des deux automates
         """
         
-8 - union(auto0, auto1):
+8 - union(auto0, auto1): <br/>
+
         """ Automate x Automate -> Automate
         rend l'automate acceptant pour langage l'union des langages des deux automates
         """
         
-9 - concatenation (auto1, auto2):
+9 - concatenation (auto1, auto2): <br/>
+
         """ Automate x Automate -> Automate
         rend l'automate acceptant pour langage la concaténation des langages des deux automates
         L1.L2 est d́efini par B = (S1 ∪ S2, T1 ∪ T2 ∪ Tˆ, I, F2)
         T = { s −→ i | i ∈ I 2 s ’ i l e x i s t e f ∈ F 1 t q s −→ f ∈ T 1 } .
         """
-10 - etoile(auto):
+10 - etoile(auto): <br/>
+
         """ Automate  -> Automate
         rend l'automate acceptant pour langage l'étoile du langage de a
 
