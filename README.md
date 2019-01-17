@@ -37,12 +37,14 @@ According to Wiki:
       auto.show("A_ListeTrans") #In order to save it as a File "A_ListeTrans.pdf"
 
 
-1 -  accepte(auto, mot):    #Why are we using 2 args (auto ??) 
+1 -  accepte(auto, mot):    <br/>
+
         """ Automate x str -> bool
         rend True si auto accepte mot, False sinon
         """
         
-2 -   estComplet(auto,alphabet):
+2 -   estComplet(auto,alphabet): <br/>
+
         """ Automate x str -> bool
          rend True si auto est complet pour alphabet, False sinon
         """
